@@ -24,7 +24,7 @@ function scrape () {
         if (res.status !== 200) return callback(new Error('Failed to get unideb proxylist: ' + res.status));
         var proxies = [];
         res.text.split('\n').forEach(function (line) {
-          if (line) proxies.push(line.split(' ')[0]);
+          if (line) proxies.push('http://' + line.split(' ')[0]);
         });
         callback(null, proxies);
       });
